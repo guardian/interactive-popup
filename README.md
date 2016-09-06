@@ -1,16 +1,17 @@
-Popup 
+Interactive popup 
 =================================
 
-An interactive to open a popup
+An interactive popup implementation for desktop and mobile web that degrades gracefully on embedded webview.
+This is intended to be use as a workaorund for embedded external content provider that does not support https. 
 
-Usage
+Development
 =====
 
 Setup
 -----
 `npm install`
 
-Development
+Running locally
 -----------
 `npm start`
 
