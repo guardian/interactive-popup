@@ -5,21 +5,21 @@ An interactive popup implementation for desktop and mobile web that degrades gra
 This is intended to be use as a workaorund for embedded external content provider that does not support https. 
 
 Development
-=====
+-----------
 
-Setup
------
+### Setup
+
 `npm install`
 
-Running locally
------------
+###  Running locally
+
 `npm start`
 
 open `http://localhost:8000/embed.html`
 
 
-Production / deployment
------------------------
+###  Production / deployment
+
 
 1. Update `cfg/s3.json`
 2. `grunt deploy`
@@ -34,8 +34,8 @@ aws_secret_access_key = <YOUR_SECRET_ACCESS_KEY>
 ```
 
 
-Using third party js
---------------------
+### Using third party js
+
 1. Install package using JSPM e.g.
 
 	`jspm install reqwest` or
@@ -48,8 +48,8 @@ Using third party js
 
 	`import reqwest from 'guardian/iframe-messenger'`
 
-Text/JSON in javascript
------------------------
+###  Text/JSON in javascript
+
 ```
 import someHTML from './text/template.html!text'
 import someJSON from './data/data.json!json'
