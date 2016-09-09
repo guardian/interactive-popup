@@ -2,7 +2,24 @@ Interactive popup
 =================================
 
 An interactive popup implementation for desktop and mobile web that degrades gracefully on embedded webview.
-This is intended to be use as a workaorund for embedded external content provider that does not support https. 
+This is intended to be use as a workaorund for embedded external content provider that does not support https.
+
+![](https://cloud.githubusercontent.com/assets/615085/18395663/535dbaf6-76b7-11e6-9449-607ab7f99962.png)
+
+
+Usage
+------
+
+Embed the interactive in Composer with as `src` parameter the `url` **encoded** to open:
+
+`https://interactive.guim.co.uk/2016/09/popup/embed/embed.html?src=http://videoplayback.parliamentlive.tv/Player/Index/3cfdcccc-7e7e-457a-87c7-5ed85d37fd8f`
+
+To encode the url, you can use an [online encoder](http://meyerweb.com/eric/tools/dencoder/).
+
+### Custom images
+
+* Parliament TV
+
 
 Development
 -----------
