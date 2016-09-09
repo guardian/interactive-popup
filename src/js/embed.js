@@ -8,10 +8,16 @@ var src = null;
 window.init = function init(el, config) {
     iframeMessenger.enableAutoResize();
 
-    el.innerHTML = embedHTML.replace(/%assetPath%/g, config.assetPath);
-
-    /* for instance http://videoplayback.parliamentlive.tv/Player/Index/3cfdcccc-7e7e-457a-87c7-5ed85d37fd8f?audioOnly=False&autoStart=True&statsEnabled=False*/
+     /* for instance http://videoplayback.parliamentlive.tv/Player/Index/3cfdcccc-7e7e-457a-87c7-5ed85d37fd8f?audioOnly=False&autoStart=True&statsEnabled=False*/
     src = decodeURI(getParameter("src"));
+
+    var image = "default.png"
+    if (src.startsWith("http://videoplayback.parliamentlive.tv")) {
+        image = "parliamentlive.jpg"
+    }
+
+    el.innerHTML = embedHTML.replace(/%assetPath%/g, config.assetPath).replace(/%image%/g, image);
+
 
     var link = document.getElementById("interactive-popup-link");
     // TODO Add detection of safari and then update the target to blank
