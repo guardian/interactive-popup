@@ -12,23 +12,35 @@ window.init = function init(el, config) {
     src = decodeURI(getParameter("src"));
 
     var image = "default.png"
+
+    /* if you want to add more specific images for a specific target, do it here*/
     if (src.startsWith("http://videoplayback.parliamentlive.tv")) {
         image = "parliamentlive.jpg"
     }
+
 
     el.innerHTML = embedHTML.replace(/%assetPath%/g, config.assetPath).replace(/%image%/g, image);
 
 
     var link = document.getElementById("interactive-popup-link");
-    // TODO Add detection of safari and then update the target to blank
+    
+    /* 
+       On iOS, webview or standalone browser, we open a new tab rather than a popup window as popup
+       will fail silently in webview.
+        
+       See https://stackoverflow.com/questions/9038625/detect-if-device-is-ios for iOs detection logic.
+    */
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (iOs) {
+        link.target="_blank";
+    }
 
     link.href = src;
 
 };
-
-
-// TODO detect the viewport to set the size of the popup dynamically
-
+/*
+  See Best Practices section on https://developer.mozilla.org/en-US/docs/Web/API/Window/open 
+*/
 window.popup = function popup(strUrl, strWindowName) {
     if(windowObjectReference == null || windowObjectReference.closed) {
         windowObjectReference = window.open(
