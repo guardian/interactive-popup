@@ -37,9 +37,11 @@ window.init = function init(el, config) {
         
        See https://stackoverflow.com/questions/9038625/detect-if-device-is-ios for iOs detection logic.
     */
+
     var iOs = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if (iOs) {
         link.target="_blank";
+        link.onclick="";
     }
 
     link.href = src;
