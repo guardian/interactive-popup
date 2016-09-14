@@ -10,11 +10,9 @@ This is intended to be use as a workaorund for embedded external content provide
 Usage
 ------
 
-Embed the interactive in Composer with as `src` parameter the `url` **encoded** to open:
+Embed the interactive in Composer with as `src` parameter the `url` to open:
 
 `https://interactive.guim.co.uk/2016/09/popup/embed/embed.html?src=http://videoplayback.parliamentlive.tv/Player/Index/3cfdcccc-7e7e-457a-87c7-5ed85d37fd8f`
-
-To encode the url, you can use an [online encoder](http://meyerweb.com/eric/tools/dencoder/).
 
 ### Custom images
 
