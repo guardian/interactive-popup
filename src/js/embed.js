@@ -8,16 +8,23 @@ var src = null;
 window.init = function init(el, config) {
     iframeMessenger.enableAutoResize();
 
-     /* for instance http://videoplayback.parliamentlive.tv/Player/Index/3cfdcccc-7e7e-457a-87c7-5ed85d37fd8f?audioOnly=False&autoStart=True&statsEnabled=False*/
+     /* for instance http://videoplayback.parliamentlive.tv/Player/Index/3cfdcccc-7e7e-457a-87c7-5ed85d37fd8f */
     src = decodeURI(getParameter("src"));
 
-    var image = "default.png"
+    var image = "default.png";
 
     /* if you want to add more specific images for a specific target, do it here*/
     if (src.startsWith("http://videoplayback.parliamentlive.tv")) {
-        image = "parliamentlive.jpg"
+        image = "parliamentlive.jpg";
+        
+        /* we automatically start the livestream */
+        if (src.indexOf('?') > -1) {
+            src = src + "&";
+        } else {
+            src = src + "?";
+        }
+        src = src + "audioOnly=False&autoStart=True&statsEnabled=False";
     }
-
 
     el.innerHTML = embedHTML.replace(/%assetPath%/g, config.assetPath).replace(/%image%/g, image);
 
@@ -30,7 +37,7 @@ window.init = function init(el, config) {
         
        See https://stackoverflow.com/questions/9038625/detect-if-device-is-ios for iOs detection logic.
     */
-    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    var iOs = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if (iOs) {
         link.target="_blank";
     }
